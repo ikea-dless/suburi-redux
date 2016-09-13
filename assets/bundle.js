@@ -66,13 +66,24 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
+	var _PointContainer = __webpack_require__(647);
+
+	var _PointContainer2 = _interopRequireDefault(_PointContainer);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var initialState = {};
+	var hoge = function hoge() {
+	  console.log('hoge');
+	};
 
 	(0, _docReady2.default)(function () {
 	  var store = (0, _index2.default)(initialState);
-	  _reactDom2.default.render(_react2.default.createElement(_reactRedux.Provider, { store: store }), document.getElementById('root'));
+	  _reactDom2.default.render(_react2.default.createElement(
+	    _reactRedux.Provider,
+	    { store: store },
+	    _react2.default.createElement(_PointContainer2.default, null)
+	  ), document.getElementById('root'));
 	});
 
 /***/ },
@@ -36438,6 +36449,72 @@
 	var CAST_GACHA = exports.CAST_GACHA = 'CAST_GACHA';
 	var INCREMENT_POINT = exports.INCREMENT_POINT = 'INCREMENT_POINT';
 	var DECREMENT_POINT = exports.DECREMENT_POINT = 'DECREMENT_POINT';
+
+/***/ },
+/* 647 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(468);
+
+	var _Button = __webpack_require__(648);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SubmitButton = function SubmitButton() {
+	  return _react2.default.createElement(_Button2.default, {
+	    handleOnClick: function handleOnClick() {
+	      console.log('hoge');
+	    },
+	    buttonText: "おせ！！"
+	  });
+	};
+
+	var mapStateToProps = function mapStateToProps(state) {
+	  return { point: state };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SubmitButton);
+
+/***/ },
+/* 648 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Button = undefined;
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Button = exports.Button = function Button(_ref) {
+	  var handleOnClick = _ref.handleOnClick;
+	  var buttonText = _ref.buttonText;
+	  return _react2.default.createElement(
+	    'button',
+	    { onClick: handleOnClick },
+	    buttonText
+	  );
+	};
+
+	exports.default = Button;
 
 /***/ }
 /******/ ]);
