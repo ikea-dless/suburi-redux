@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import docReady from 'doc-ready'
 import configureStore from './store/index'
 import PointContainer from './containers/PointContainer'
-import { incrementPoint } from './actions/point'
 
 docReady(() => {
   let store = configureStore()

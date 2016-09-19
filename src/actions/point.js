@@ -1,7 +1,4 @@
-import { createAction } from 'redux-actions'
 import * as types from '../constants/ActionTypes'
-
-// const incrementPoint = createAction(types.INCREMENT_POINT)
 
 export const incrementPoint = (count) => {
   return {
@@ -9,5 +6,3 @@ export const incrementPoint = (count) => {
     count: count
   }
 }
-
-// export default incrementPoint

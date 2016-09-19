@@ -2,9 +2,7 @@ import { createStore } from 'redux'
 import rootReducer from '../reducers/index'
 
 const configureStore = (initialState) => {
-  const store = createStore(rootReducer, initialState)
-
-  return store
+  return createStore(rootReducer, initialState)
 }
 
 export default configureStore
