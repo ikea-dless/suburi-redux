@@ -6,11 +6,8 @@ import docReady from 'doc-ready'
 import configureStore from './store/index'
 import PointContainer from './containers/PointContainer'
 
-const initialState = {}
-const hoge = () => { console.log('hoge') }
-
 docReady(() => {
-  const store = configureStore(initialState)
+  const store = configureStore()
   ReactDom.render(
     <Provider store={ store }>
       <PointContainer />

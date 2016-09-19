@@ -1,11 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Button from '../components/Button'
+import { incrementPoint } from '../actions/point'
 
-const SubmitButton = () => (
+import configureStore from '../store/index'
+const store = configureStore()
+
+const SubmitButton = ({ dispatch }) => (
   <Button
-    handleOnClick={ () => { console.log('hoge') } }
-    buttonText={"おせ！！"}
+    handleOnClick={ () => {
+      dispatch(incrementPoint(10))
+      console.log(dispatch())
+    } }
+    buttonText={ "おせ" }
   />
 )
 

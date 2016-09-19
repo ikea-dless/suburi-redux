@@ -72,13 +72,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var initialState = {};
-	var hoge = function hoge() {
-	  console.log('hoge');
-	};
-
 	(0, _docReady2.default)(function () {
-	  var store = (0, _index2.default)(initialState);
+	  var store = (0, _index2.default)();
 	  _reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -31245,15 +31240,31 @@
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-	var initialState = {};
+	// const initialState = {}
 
-	var increment = function increment(state, action) {
-	  return { state: state, action: action };
+	// const increment = (state, action) => {
+	//   return { state, action }
+	// }
+	//
+	// const point = handleActions({
+	//   INCREMENT_POINT: increment
+	// }, initialState)
+	//
+	// export default point
+
+	var point = function point() {
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case types.INCREMENT_POINT:
+	      return {
+	        arg: action.arg
+	      };
+	    default:
+	      return state;
+	  }
 	};
-
-	var point = (0, _reduxActions.handleActions)({
-	  INCREMENT_POINT: increment
-	}, initialState);
 
 	exports.default = point;
 
@@ -36470,14 +36481,24 @@
 
 	var _Button2 = _interopRequireDefault(_Button);
 
+	var _point = __webpack_require__(649);
+
+	var _index = __webpack_require__(494);
+
+	var _index2 = _interopRequireDefault(_index);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SubmitButton = function SubmitButton() {
+	var store = (0, _index2.default)();
+
+	var SubmitButton = function SubmitButton(_ref) {
+	  var dispatch = _ref.dispatch;
 	  return _react2.default.createElement(_Button2.default, {
 	    handleOnClick: function handleOnClick() {
-	      console.log('hoge');
+	      dispatch((0, _point.incrementPoint)(10));
+	      console.log(dispatch());
 	    },
-	    buttonText: "おせ！！"
+	    buttonText: "おせ"
 	  });
 	};
 
@@ -36515,6 +36536,36 @@
 	};
 
 	exports.default = Button;
+
+/***/ },
+/* 649 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.incrementPoint = undefined;
+
+	var _reduxActions = __webpack_require__(497);
+
+	var _ActionTypes = __webpack_require__(646);
+
+	var types = _interopRequireWildcard(_ActionTypes);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	// const incrementPoint = createAction(types.INCREMENT_POINT)
+
+	var incrementPoint = exports.incrementPoint = function incrementPoint(arg) {
+	  return {
+	    type: types.INCREMENT_POINT,
+	    arg: arg
+	  };
+	};
+
+	// export default incrementPoint
 
 /***/ }
 /******/ ]);
