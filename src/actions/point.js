@@ -3,10 +3,10 @@ import * as types from '../constants/ActionTypes'
 
 // const incrementPoint = createAction(types.INCREMENT_POINT)
 
-export const incrementPoint = (arg) => {
+export const incrementPoint = (count) => {
   return {
     type: types.INCREMENT_POINT,
-    arg
+    count: count
   }
 }
 

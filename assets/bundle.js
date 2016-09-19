@@ -70,10 +70,16 @@
 
 	var _PointContainer2 = _interopRequireDefault(_PointContainer);
 
+	var _point = __webpack_require__(649);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(0, _docReady2.default)(function () {
 	  var store = (0, _index2.default)();
+	  store.subscribe(function () {
+	    console.log(store.getState());
+	  });
+
 	  _reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -31252,14 +31258,17 @@
 	//
 	// export default point
 
+	var initialState = { sum: 0 };
+
 	var point = function point() {
-	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  var state = arguments.length <= 0 || arguments[0] === undefined ? initialState : arguments[0];
 	  var action = arguments[1];
 
 	  switch (action.type) {
 	    case types.INCREMENT_POINT:
 	      return {
-	        arg: action.arg
+	        count: action.count,
+	        sum: state.sum + action.count
 	      };
 	    default:
 	      return state;
@@ -36483,20 +36492,13 @@
 
 	var _point = __webpack_require__(649);
 
-	var _index = __webpack_require__(494);
-
-	var _index2 = _interopRequireDefault(_index);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var store = (0, _index2.default)();
 
 	var SubmitButton = function SubmitButton(_ref) {
 	  var dispatch = _ref.dispatch;
 	  return _react2.default.createElement(_Button2.default, {
 	    handleOnClick: function handleOnClick() {
 	      dispatch((0, _point.incrementPoint)(10));
-	      console.log(dispatch());
 	    },
 	    buttonText: "おせ"
 	  });
@@ -36558,10 +36560,10 @@
 
 	// const incrementPoint = createAction(types.INCREMENT_POINT)
 
-	var incrementPoint = exports.incrementPoint = function incrementPoint(arg) {
+	var incrementPoint = exports.incrementPoint = function incrementPoint(count) {
 	  return {
 	    type: types.INCREMENT_POINT,
-	    arg: arg
+	    count: count
 	  };
 	};
 
