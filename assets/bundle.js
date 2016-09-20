@@ -66,7 +66,7 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _PointContainer = __webpack_require__(498);
+	var _PointContainer = __webpack_require__(647);
 
 	var _PointContainer2 = _interopRequireDefault(_PointContainer);
 
@@ -31234,7 +31234,7 @@
 	  value: true
 	});
 
-	var _ActionTypes = __webpack_require__(497);
+	var _ActionTypes = __webpack_require__(646);
 
 	var types = _interopRequireWildcard(_ActionTypes);
 
@@ -31248,9 +31248,10 @@
 
 	  switch (action.type) {
 	    case types.INCREMENT_POINT:
+	      var countInt = parseInt(action.count);
 	      return {
-	        count: action.count,
-	        sum: state.sum + action.count
+	        count: countInt,
+	        sum: state.sum + countInt
 	      };
 	    default:
 	      return state;
@@ -31260,7 +31261,156 @@
 	exports.default = point;
 
 /***/ },
-/* 497 */
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */,
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */,
+/* 564 */,
+/* 565 */,
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */,
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */,
+/* 595 */,
+/* 596 */,
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */,
+/* 603 */,
+/* 604 */,
+/* 605 */,
+/* 606 */,
+/* 607 */,
+/* 608 */,
+/* 609 */,
+/* 610 */,
+/* 611 */,
+/* 612 */,
+/* 613 */,
+/* 614 */,
+/* 615 */,
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */,
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */,
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */,
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */,
+/* 645 */,
+/* 646 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31273,7 +31423,7 @@
 	var DECREMENT_POINT = exports.DECREMENT_POINT = 'DECREMENT_POINT';
 
 /***/ },
-/* 498 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31288,32 +31438,45 @@
 
 	var _reactRedux = __webpack_require__(468);
 
-	var _Button = __webpack_require__(499);
+	var _Button = __webpack_require__(648);
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _point = __webpack_require__(500);
+	var _point = __webpack_require__(649);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var SubmitButton = function SubmitButton(_ref) {
+	var input = void 0;
+
+	var IncrementForm = function IncrementForm(_ref) {
 	  var dispatch = _ref.dispatch;
-	  return _react2.default.createElement(_Button2.default, {
-	    handleOnClick: function handleOnClick() {
-	      dispatch((0, _point.incrementPoint)(10));
-	    },
-	    buttonText: "おせ"
-	  });
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement('input', { ref: function ref(node) {
+	        input = node;
+	      }, type: 'number' }),
+	    _react2.default.createElement(_Button2.default, {
+	      handleOnClick: function handleOnClick() {
+	        dispatch((0, _point.incrementPoint)(input.value));
+	      },
+	      buttonText: "おせ"
+	    })
+	  );
+	};
+
+	IncrementForm.PropTypes = {
+	  dispacth: _react.PropTypes.func.isRequired
 	};
 
 	var mapStateToProps = function mapStateToProps(state) {
 	  return { point: state };
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(SubmitButton);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(IncrementForm);
 
 /***/ },
-/* 499 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31321,7 +31484,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Button = undefined;
 
 	var _react = __webpack_require__(298);
 
@@ -31329,7 +31491,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Button = exports.Button = function Button(_ref) {
+	var Button = function Button(_ref) {
 	  var handleOnClick = _ref.handleOnClick;
 	  var buttonText = _ref.buttonText;
 	  return _react2.default.createElement(
@@ -31339,10 +31501,15 @@
 	  );
 	};
 
+	Button.propTypes = {
+	  handleOnClick: _react.PropTypes.func.isRequired,
+	  buttonText: _react.PropTypes.string.isRequired
+	};
+
 	exports.default = Button;
 
 /***/ },
-/* 500 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31352,7 +31519,7 @@
 	});
 	exports.incrementPoint = undefined;
 
-	var _ActionTypes = __webpack_require__(497);
+	var _ActionTypes = __webpack_require__(646);
 
 	var types = _interopRequireWildcard(_ActionTypes);
 
